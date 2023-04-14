@@ -49,7 +49,7 @@ project {
         buildReportTab {
             id = "PROJECT_EXT_5"
             title = "Report"
-            startPage = "index.html"
+            startPage = "playwright-report/index.html"
         }
     }
 }
