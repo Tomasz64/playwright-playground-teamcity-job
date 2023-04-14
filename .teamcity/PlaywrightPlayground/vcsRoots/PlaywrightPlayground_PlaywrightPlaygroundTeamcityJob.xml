@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="08ab2aa0-0c6f-4eec-abd5-f780c121b16e" type="jetbrains.git" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2021.1/project-config.xsd">
+  <name>playwright-playground-teamcity-job</name>
+  <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
+  <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
+  <param name="authMethod" value="PASSWORD" />
+  <param name="branch" value="master" />
+  <param name="ignoreKnownHosts" value="true" />
+  <param name="oauthProviderId" value="PROJECT_EXT_4" />
+  <param name="secure:password" value="credentialsJSON:b5c363eb-b023-4fff-930f-f719d3dd8315" />
+  <param name="submoduleCheckout" value="CHECKOUT" />
+  <param name="tokenType" value="undefined" />
+  <param name="url" value="https://github.com/Tomasz64/playwright-playground-teamcity-job" />
+  <param name="useAlternates" value="AUTO" />
+  <param name="username" value="Tomasz64" />
+  <param name="usernameStyle" value="USERID" />
+</vcs-root>
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="c5eb4d83-5639-4026-9fd4-df373eabec33" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2021.1/project-config.xsd">
+  <name>Build</name>
+  <description />
+  <settings>
+    <options>
+      <option name="artifactRules" value="playwright-report =&gt; playwright-report" />
+    </options>
+    <parameters />
+    <build-runners>
+      <runner id="RUNNER_1" name="Install Dependencies" type="nodejs-runner">
+        <parameters>
+          <param name="plugin.docker.imageId" value="mcr.microsoft.com/playwright" />
+          <param name="shellScript" value="npm install" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_2" name="Run Tests" type="nodejs-runner">
+        <parameters>
+          <param name="plugin.docker.imageId" value="mcr.microsoft.com/playwright" />
+          <param name="shellScript"><![CDATA[npx playwright install
+npx playwright test]]></param>
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="PlaywrightPlayground_HttpsGithubComTomasz64playwrightPlaygroundRefsHeadsMaster" />
+    </vcs-settings>
+    <requirements />
+    <build-triggers>
+      <build-trigger id="TRIGGER_1" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:*" />
+          <param name="enableQueueOptimization" value="true" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
+    <build-extensions>
+      <extension id="perfmon" type="perfmon">
+        <parameters>
+          <param name="teamcity.perfmon.feature.enabled" value="true" />
+        </parameters>
+      </extension>
+    </build-extensions>
+    <cleanup />
+  </settings>
+</build-type>
+
