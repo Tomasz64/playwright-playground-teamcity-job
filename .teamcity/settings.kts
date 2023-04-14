@@ -77,6 +77,10 @@ object Build : BuildType({
 
     triggers {
         vcs {
+            branchFilter = """
+                +:*
+                +:<default>
+            """.trimIndent()
         }
     }
 
