@@ -59,23 +59,16 @@ object Build : BuildType({
         nodeJS {
             name = "Install Dependencies"
             shellScript = "npm install"
-            dockerImage = "mcr.microsoft.com/playwright"
+            dockerImage = "mcr.microsoft.com/playwright:v1.30.0-focal"
             dockerImagePlatform = NodeJSBuildStep.ImagePlatform.Any
         }
         nodeJS {
-            name = "Install Browsers"
+            name = "Install Browsers and run tests"
             shellScript = """
                 npx playwright install
-            """.trimIndent()
-            dockerImage = "mcr.microsoft.com/playwright"
-            dockerImagePlatform = NodeJSBuildStep.ImagePlatform.Any
-        }
-        nodeJS {
-            name = "Run Tests"
-            shellScript = """
                 npx playwright test
             """.trimIndent()
-            dockerImage = "mcr.microsoft.com/playwright"
+            dockerImage = "mcr.microsoft.com/playwright:v1.30.0-focal"
             dockerImagePlatform = NodeJSBuildStep.ImagePlatform.Any
         }
     }
