@@ -63,9 +63,16 @@ object Build : BuildType({
             dockerImagePlatform = NodeJSBuildStep.ImagePlatform.Any
         }
         nodeJS {
-            name = "Run Tests"
+            name = "Install Browsers"
             shellScript = """
                 npx playwright install
+            """.trimIndent()
+            dockerImage = "mcr.microsoft.com/playwright"
+            dockerImagePlatform = NodeJSBuildStep.ImagePlatform.Any
+        }
+        nodeJS {
+            name = "Run Tests"
+            shellScript = """
                 npx playwright test
             """.trimIndent()
             dockerImage = "mcr.microsoft.com/playwright"
