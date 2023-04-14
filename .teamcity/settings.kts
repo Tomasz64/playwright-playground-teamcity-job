@@ -4,6 +4,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.NodeJSBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.nodeJS
 import jetbrains.buildServer.configs.kotlin.failureConditions.BuildFailureOnMetric
 import jetbrains.buildServer.configs.kotlin.failureConditions.failOnMetricChange
+import jetbrains.buildServer.configs.kotlin.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubConnection
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
@@ -44,6 +45,11 @@ project {
             displayName = "GitHub.com"
             clientId = "28d4a3b5cf0c10c0748e"
             clientSecret = "credentialsJSON:7a6ac660-1a37-4936-9124-5250873b808b"
+        }
+        buildReportTab {
+            id = "PROJECT_EXT_5"
+            title = "Report"
+            startPage = "index.html"
         }
     }
 }
